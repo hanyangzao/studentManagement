@@ -78,3 +78,33 @@ $uni-font-size-paragraph:30rpx;
 
 //引入uview的scss文件
 @import 'uview-ui/theme.scss';
+
+//自定义色值
+$gdl-color-blue-light:#99b2da;
+$gdl-color-blue:#0024de;
+$gdl-color-gray-dark:#778baa;
+$gdl-color-gray-light:#efeced;
+$gdl-color-gray:#a7a9b6;
+$gdl-color-red:#ff3600;
+$gdl-color-orange:#ffa161;
+$gdl-color-black:#1e253f;
+
+.wrap{
+	&.pd-20{
+		padding: 20rpx;
+	}
+}
+.treeTectangle{
+	padding: 20rpx;
+	//border:2rpx solid $gdl-color-gray-light;
+	border-top-left-radius: 68rpx;
+	border-bottom-right-radius: 68rpx;
+	//box-shadow: 2px 2px 3px $gdl-color-gray-light;
+}
+.capsule{
+	padding: 20rpx;
+	border-radius: 68rpx;
+}
+
+
+

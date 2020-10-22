@@ -17,8 +17,8 @@
             "path" : "pages/stuList/stuList",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "学员列表",
-                "navigationStyle":"custom"
+                "navigationBarTitleText": "学员列表"
+                
             }
             
         }
@@ -35,7 +35,7 @@
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
 		"navigationBarTitleText": "学员管理",
-		"navigationBarBackgroundColor": "#007AFF",
+		"navigationBarBackgroundColor": "#f0ad4e",
 		"backgroundColor": "#FFFFFF"
 	},
 	"tabBar": {
