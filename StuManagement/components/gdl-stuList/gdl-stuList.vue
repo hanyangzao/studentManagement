@@ -2,13 +2,8 @@
 	<view class="wrap pd-20">
 		<view class="stu_list">
 			
-			<u-swipe-action :show="item.show" :index="index" 
-						v-for="(item, index) in stuList" :key="item._id" 
-						@click="swipeClick" @open="swipeOpen"
-						:options="options"
-					>
-					
-				<view class="stu_item capsule">	
+		
+				<view class="stu_item capsule" v-for="(item, index) in stuList" :key="item._id">	
 					<u-avatar :src="item.avatar" :show-sex="true" :sex-icon="item.sex==1?'man':'woman'"></u-avatar>
 					<view class="centerCon">
 						<view class="topCon">
@@ -25,12 +20,11 @@
 							</div> 
 						</view>
 					</view>
-					<view class="del" @click="delStu">
-						<u-icon name="trash" color="#888"></u-icon>
+					<view class="delBtn" @click="delStu(index,item._id)">
+						<u-icon name="close" color="#888" size="28"></u-icon>
 					</view>
 				</view>
 			
-			</u-swipe-action>
 			
 			
 		</view>
@@ -43,37 +37,28 @@
 		props: ['stuList'],
 		data(){
 			return {
-				show: false,
-				options: [
-					{
-						text: '收藏',
-						style: {
-							backgroundColor: '#007aff'
-						}
-					},
-					{
-						text: '删除',
-						style: {
-							backgroundColor: '#dd524d'
-						}
-					}
-				]
+				
 			}
 		},
 		methods: {
-		
+			delStu(index,id){
+			   //console.log(index,id);
+			   this.$emit("del",index,id);
+			}
 		}
 	}
 </script>
 
 <style scoped lang="scss">
 	.stu_list {
+		margin-bottom:200rpx;
+		
 		.stu_item {
 			display: flex;
 			align-items: center;
 			margin-bottom: 20rpx;
 			overflow: hidden;
-			background-color:lighten($gdl-color-blue,52%);
+			background-color:#fff;
 			
 			.centerCon{
 				flex: 1;
@@ -100,6 +85,17 @@
 				}
 				
 			}
+			.delBtn{
+				width: 60rpx;
+				height: 60rpx;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			
 		}
+		
+		
+		
 	}
 </style>

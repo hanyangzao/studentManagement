@@ -32,7 +32,7 @@ export default {
 /* #endif */
 
 //頁面別景色
-// page{
-// 	background-color: #fefefe;
-// }
+page{
+	background-color: #f5f5f5;
+}
 </style>

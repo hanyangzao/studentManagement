@@ -18,7 +18,6 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "学员列表"
-                
             }
             
         }
@@ -26,8 +25,16 @@
             "path" : "pages/profile/profile",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "我的",
-                "navigationStyle":"custom"
+                "navigationBarTitleText": "我的"
+                // "navigationStyle":"custom"
+            }
+            
+        }
+        ,{
+            "path" : "pages/stuNew/stuNew",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "新建学员"
             }
             
         }
@@ -35,24 +42,25 @@
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
 		"navigationBarTitleText": "学员管理",
-		"navigationBarBackgroundColor": "#f0ad4e",
-		"backgroundColor": "#FFFFFF"
+		"navigationBarBackgroundColor": "#5696e3",
+		"backgroundColor": "#F5F5F5"
 	},
 	"tabBar": {
-		"selectedColor":"#68b7fc",
-		"color":"#cccccc",
+		"selectedColor":"#5696e3",
+		"color":"#888888",
+		"borderStyle":"white",
 		"list": [
 			{
 				"text":"学员列表",
-				"pagePath":"pages/stuList/stuList"
-				// "iconPath":"static/icon/tabbar/home.png",
-				// "selectedIconPath":"static/icon/tabbar/home-active.png"
+				"pagePath":"pages/stuList/stuList",
+				"iconPath":"static/icon/tabbar/stuList.png",
+				"selectedIconPath":"static/icon/tabbar/stuList-active.png"
 			},
 			{
 				"text":"我的",
-				"pagePath":"pages/profile/profile"
-				// "iconPath":"static/icon/tabbar/my.png",
-				// "selectedIconPath":"static/icon/tabbar/my-active.png"
+				"pagePath":"pages/profile/profile",
+				"iconPath":"static/icon/tabbar/my.png",
+				"selectedIconPath":"static/icon/tabbar/my-active.png"
 			}
 		]
 	},
