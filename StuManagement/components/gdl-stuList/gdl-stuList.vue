@@ -4,7 +4,7 @@
 			
 		
 				<view class="stu_item capsule" v-for="(item, index) in stuList" :key="item._id">	
-					<u-avatar :src="item.avatar" :show-sex="true" :sex-icon="item.sex==1?'man':'woman'"></u-avatar>
+					<u-avatar :src="item.avatar" :show-sex="true" :sex-icon="item.sex=='男'?'man':'woman'"></u-avatar>
 					<view class="centerCon">
 						<view class="topCon">
 							<view class="stuName">
@@ -16,8 +16,8 @@
 						</view>
 						<view class="bottomCon">
 							<div class="tel">
-								联系方式:{{item.parents[0].tel}}({{item.parents[0].role}})
-							</div> 
+								课程:{{item.course}}
+							</div>
 						</view>
 					</view>
 					<view class="delBtn" @click="delStu(index,item._id)">
