@@ -42,11 +42,11 @@
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
 		"navigationBarTitleText": "学员管理",
-		"navigationBarBackgroundColor": "#5696e3",
+		"navigationBarBackgroundColor": "#0faeff",
 		"backgroundColor": "#F5F5F5"
 	},
 	"tabBar": {
-		"selectedColor":"#5696e3",
+		"selectedColor":"#0faeff",
 		"color":"#888888",
 		"borderStyle":"white",
 		"list": [

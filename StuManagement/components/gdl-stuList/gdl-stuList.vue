@@ -3,7 +3,7 @@
 		<view class="stu_list">
 			
 		
-				<view class="stu_item capsule" v-for="(item, index) in stuList" :key="item._id">	
+				<view class="stu_item capsule" v-for="(item, index) in stuList" :key="item._id" @click="toDetail(index,item._id)" @longpress="delStu(index,item._id)">	
 					<u-avatar :src="item.avatar" :show-sex="true" :sex-icon="item.sex=='男'?'man':'woman'"></u-avatar>
 					<view class="centerCon">
 						<view class="topCon">
@@ -20,8 +20,8 @@
 							</div>
 						</view>
 					</view>
-					<view class="delBtn" @click="delStu(index,item._id)">
-						<u-icon name="close" color="#888" size="28"></u-icon>
+					<view class="editBtn" @click.stop="editStu(index,item._id)">
+						<u-icon name="edit-pen" color="#888" size="34"></u-icon>
 					</view>
 				</view>
 			
@@ -44,6 +44,16 @@
 			delStu(index,id){
 			   //console.log(index,id);
 			   this.$emit("del",index,id);
+			},
+			editStu(index,id){
+				uni.navigateTo({
+				    url: '../stuNew/stuNew?id='+id+'&status=edit',
+				});
+			},
+			toDetail(index,id){
+				uni.navigateTo({
+				    url: '../stuNew/stuNew?id='+id+'&status=unedit',
+				});
 			}
 		}
 	}
@@ -85,7 +95,7 @@
 				}
 				
 			}
-			.delBtn{
+			.editBtn{
 				width: 60rpx;
 				height: 60rpx;
 				display: flex;

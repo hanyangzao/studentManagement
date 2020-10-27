@@ -42,15 +42,17 @@
 			}
 		},
 		onLoad(){
-			this.getStulist();
-			// uni.$on('updateStuList',function(data){
-			//         console.log('监听到事件来自 updateStuList ，携带参数 msg 为：' + data.msg);
-			// 		this.getStulist();
-			// })
+			var that=this;
+			that.getStulist();
+			//监听从新建学员页面里发起的更新列表事件
+			uni.$on('updateStuList',function(data){
+			        console.log('监听到事件来自 updateStuList ，携带参数 msg 为：' + data.msg);
+					that.getStulist();
+			})
 			
 		},
-		onShow(){
-			this.getStulist();
+		onUnload(){
+			uni.$off('updateStuList')
 		},
 		methods:{
 			getStulist(){
@@ -112,7 +114,7 @@
 			newStu(){
 				//console.log("跳转");
 				uni.navigateTo({
-				    url: '../stuNew/stuNew'
+				    url: '../stuNew/stuNew?status=new'
 				});
 			}
 			
