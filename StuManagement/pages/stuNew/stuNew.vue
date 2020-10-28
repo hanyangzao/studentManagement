@@ -84,9 +84,13 @@
 						
 					</u-form-item>
 					
-					<u-form-item label="选择老师" prop="teacher" label-width="140">
+					<u-form-item label="授课老师" prop="teacher" label-width="140">
 						<u-input v-model="form.teacher" type="select" @click="isShowTeacher" placeholder="请选择老师"/>
 						<u-action-sheet :list="teacherList" v-model="showTeacher" @click="teacherSelect"></u-action-sheet>
+					</u-form-item>
+					<u-form-item label="课程顾问" prop="adviser" label-width="140">
+						<u-input v-model="form.adviser" type="select" @click="isShowAdviser" placeholder="请选择课程顾问"/>
+						<u-action-sheet :list="adviserList" v-model="showAdviser" @click="adviserSelect"></u-action-sheet>
 					</u-form-item>
 					<u-form-item label="备注" prop="remark">
 						<u-input v-model="form.remark" type="textarea"  height="100" :auto-height="true" placeholder="备注" :disabled="inputDisabled"/>
@@ -138,6 +142,7 @@
 						minute:"00"
 					},
 					"teacher":"",
+					"adviser":"",
 					"remark":""
 					
 				},
@@ -207,16 +212,23 @@
 				showTeacher:false,
 				teacherList: [
 					// {
-					// 	text: '创意美术技法班'
+					// 	text: '张三'
 					// },
 					// {
-					// 	text: '造型基础班'
+					// 	text: '李四'
 					// }
 					
 				],
 				formLabelstyle:{
 					color:"#1e253f"
 				},
+				showAdviser:false,
+				adviserList:[
+					// {
+					// 	text: ''
+					// }
+					
+				],
 				showBtnGroup:true,
 				inputDisabled:false,
 				rules: {
@@ -255,6 +267,7 @@
 			
 			this.getCourselist();
 			this.getTeacherlist();
+			this.getAdviserlist();
 		},
 		onReady(){
 			
@@ -329,16 +342,14 @@
 				})
 			},
 			getCourselist(){
-				// uni.showLoading({
-				// 	title: '获取课程列表...'
-				// })
+				
 				uniCloud.callFunction({
 					name: 'getCourselist'
 				}).then((res) => {
-					//uni.hideLoading();
+					
 					this.courseList=res.result.data;
 				}).catch((err) => {
-					uni.hideLoading()
+					
 					uni.showModal({
 						content: `获取课程列表失败，错误信息为：${err.message}`,
 						showCancel: false
@@ -347,18 +358,31 @@
 				})
 			},
 			getTeacherlist(){
-				// uni.showLoading({
-				// 	title: '获取课程列表...'
-				// })
+				
 				uniCloud.callFunction({
 					name: 'getTeacherlist'
 				}).then((res) => {
-					//uni.hideLoading();
+					
 					this.teacherList=res.result.data;
 				}).catch((err) => {
-					uni.hideLoading()
+					
 					uni.showModal({
 						content: `获取教师列表失败，错误信息为：${err.message}`,
+						showCancel: false
+					})
+					console.error(err)
+				})
+			},
+			getAdviserlist(){
+				uniCloud.callFunction({
+					name: 'getAdviserlist'
+				}).then((res) => {
+					
+					this.adviserList=res.result.data;
+				}).catch((err) => {
+					
+					uni.showModal({
+						content: `获取课程顾问列表失败，错误信息为：${err.message}`,
 						showCancel: false
 					})
 					console.error(err)
@@ -466,6 +490,12 @@
 			},
 			teacherSelect(index){
 				this.form.teacher = this.teacherList[index].text;
+			},
+			isShowAdviser(){
+				this.formObj.status=="unedit"?(this.showAdviser=false):(this.showAdviser=true);
+			},
+			adviserSelect(index){
+				this.form.adviser = this.adviserList[index].text;
 			},
 			formDisabled(){
 				this.inputDisabled=true;
