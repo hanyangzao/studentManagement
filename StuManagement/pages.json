@@ -13,31 +13,43 @@
 		// 		"navigationBarTitleText": "学员管理"
 		// 	}
 		// }
-	    {
-            "path" : "pages/stuList/stuList",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "学员列表"
-            }
+		{
+		    "path" : "pages/appointment/appointment",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "涂彧画室",
+				//"navigationStyle":"custom",
+		        "enablePullDownRefresh": false
+		    }
+		    
+		}
+	    
+		// {
+  //           "path" : "pages/stuList/stuList",
+  //           "style" :                                                                                    
+  //           {
+  //               "navigationBarTitleText": "学员列表"
+  //           }
             
-        }
-        ,{
-            "path" : "pages/profile/profile",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "我的"
-                // "navigationStyle":"custom"
-            }
+  //       }
+  //       ,{
+  //           "path" : "pages/profile/profile",
+  //           "style" :                                                                                    
+  //           {
+  //               "navigationBarTitleText": "我的"
+  //               // "navigationStyle":"custom"
+  //           }
             
-        }
-        ,{
-            "path" : "pages/stuNew/stuNew",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "新建学员"
-            }
+  //       }
+  //       ,{
+  //           "path" : "pages/stuNew/stuNew",
+  //           "style" :                                                                                    
+  //           {
+  //               "navigationBarTitleText": "新建学员"
+  //           }
             
-        }
+  //       }
+        
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
@@ -45,25 +57,25 @@
 		"navigationBarBackgroundColor": "#0faeff",
 		"backgroundColor": "#F5F5F5"
 	},
-	"tabBar": {
-		"selectedColor":"#0faeff",
-		"color":"#888888",
-		"borderStyle":"white",
-		"list": [
-			{
-				"text":"学员列表",
-				"pagePath":"pages/stuList/stuList",
-				"iconPath":"static/icon/tabbar/stuList.png",
-				"selectedIconPath":"static/icon/tabbar/stuList-active.png"
-			},
-			{
-				"text":"我的",
-				"pagePath":"pages/profile/profile",
-				"iconPath":"static/icon/tabbar/my.png",
-				"selectedIconPath":"static/icon/tabbar/my-active.png"
-			}
-		]
-	},
+	// "tabBar": {
+	// 	"selectedColor":"#0faeff",
+	// 	"color":"#888888",
+	// 	"borderStyle":"white",
+	// 	"list": [
+	// 		{
+	// 			"text":"学员列表",
+	// 			"pagePath":"pages/stuList/stuList",
+	// 			"iconPath":"static/icon/tabbar/stuList.png",
+	// 			"selectedIconPath":"static/icon/tabbar/stuList-active.png"
+	// 		},
+	// 		{
+	// 			"text":"我的",
+	// 			"pagePath":"pages/profile/profile",
+	// 			"iconPath":"static/icon/tabbar/my.png",
+	// 			"selectedIconPath":"static/icon/tabbar/my-active.png"
+	// 		}
+	// 	]
+	// },
 	"easycom": {
 		"^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
 	}
