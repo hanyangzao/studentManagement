@@ -41,8 +41,11 @@
 				</u-modal>
 				
 				<view class="submitBtn">
-					<u-button :plain="true" shape="circle" :ripple="true" ripple-bg-color="#007ce8" :custom-style="customStyle" @click="submit">预约课程</u-button>
+					<u-button :plain="true" shape="circle" :ripple="true" ripple-bg-color="#ffc200" :custom-style="customStyle" @click="submit">预约课程</u-button>
 				</view>
+				
+				<!-- <button class='testbutton' open-type="getUserInfo" @getuserinfo="getuserinfo" withCredentials="true">授权</button>
+				 <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取电话号码</button>  -->
 				
 			</view>
 		</view>	
@@ -74,6 +77,7 @@
 					tel: '',
 					age: '',
 					course:'',
+					date:this.$u.timeFormat(new Date(), 'yyyy-mm-dd hh:MM:ss')
 				},
 				labelPosition:'top',
 				labelStyle:{
@@ -88,7 +92,7 @@
 				customStyle:{
 					marginTop: '20px',
 					marginBottom: '20px',
-					backgroundColor:'#0faeff',
+					backgroundColor:'#ffd140',
 					color: '#fff',
 					height:'44px',
 				},
@@ -150,12 +154,69 @@
 			};
 		},
 		onLoad(){
-			
+			//获取用户信息
+			//this.getuserinfo();
 		},
 		onReady() {
 			this.$refs.uForm.setRules(this.rules);
 		},
+		onShareAppMessage(res) {
+			if (res.from === 'button') {// 来自页面内分享按钮
+				console.log(res.target)
+			}
+			return {
+				title: '涂彧美术-约课',
+				path: ''
+			}
+		},
+		onShareTimeline(res) {
+			if (res.from === 'button') {// 来自页面内分享按钮
+				console.log(res.target)
+			}
+			return {
+				title: '涂彧美术-约课',
+				path: ''
+			}
+		},
 		methods:{
+			getuserinfo: function(){
+				// wx登录
+				// wx.login({
+				//   success (res) {
+				// 	if (res.code) {
+				// 	  //发起网络请求
+				// 	  var code = res.code
+				// 		// 获取微信用户信息
+						wx.getUserInfo({
+						  success: function(res) {
+							console.log(res);
+							
+						  },
+						  fail:res=>{
+							  console.log("失败");
+							  uni.authorize({
+									scope:"scope.userInfo",
+									success(res) {
+										console.log(res);
+									},
+									fail() {
+										uni.openSetting({
+											success(authSetting) {
+												console.log(authSetting);
+											}
+										})
+									}
+								})
+						   }
+						})
+						
+				// 	} else {
+				// 		console.log("wx.login调用失败");
+				// 	}
+				//   }
+				// })
+			},
+			
 			addStu() {
 				uni.showLoading({
 					title: '信息提交中...'

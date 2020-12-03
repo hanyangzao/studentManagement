@@ -4,6 +4,11 @@ import App from './App'
 //引入uview
 import uView from "uview-ui";
 Vue.use(uView);
+// //引入uview分享模板
+// let mpShare = require('uview-ui/libs/mixin/mpShare.js');
+// Vue.mixin(mpShare);
+
+
 //引入lodash
 import lodash from 'lodash'
 let _= require('lodash');

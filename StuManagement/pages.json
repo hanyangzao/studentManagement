@@ -7,53 +7,61 @@
 		// 		"navigationBarTitleText": "附件"
 		// // 	}
 		// },
-		// {
-		// 	"path": "pages/index/index",
-		// 	"style": {
-		// 		"navigationBarTitleText": "学员管理"
-		// 	}
-		// }
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "涂彧美术"
+			}
+		},
+		{
+		    "path" : "pages/appointmentList/appointmentList",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "试听列表",
+		        "enablePullDownRefresh": true
+		    }
+		    
+		},
+		{
+            "path" : "pages/stuList/stuList",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "学员列表"
+            }
+            
+        }
+        ,{
+            "path" : "pages/profile/profile",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "我的"
+                // "navigationStyle":"custom"
+            }
+            
+        }
+        ,{
+            "path" : "pages/stuNew/stuNew",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "新建学员"
+            }
+            
+        },
 		{
 		    "path" : "pages/appointment/appointment",
 		    "style" :                                                                                    
 		    {
-		        "navigationBarTitleText": "涂彧画室",
+		        "navigationBarTitleText": "涂彧美术",
 				//"navigationStyle":"custom",
 		        "enablePullDownRefresh": false
 		    }
 		    
 		}
-	    
-		// {
-  //           "path" : "pages/stuList/stuList",
-  //           "style" :                                                                                    
-  //           {
-  //               "navigationBarTitleText": "学员列表"
-  //           }
-            
-  //       }
-  //       ,{
-  //           "path" : "pages/profile/profile",
-  //           "style" :                                                                                    
-  //           {
-  //               "navigationBarTitleText": "我的"
-  //               // "navigationStyle":"custom"
-  //           }
-            
-  //       }
-  //       ,{
-  //           "path" : "pages/stuNew/stuNew",
-  //           "style" :                                                                                    
-  //           {
-  //               "navigationBarTitleText": "新建学员"
-  //           }
-            
-  //       }
         
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
-		"navigationBarTitleText": "学员管理",
+		"navigationBarTitleText": "涂彧美术",
 		"navigationBarBackgroundColor": "#0faeff",
 		"backgroundColor": "#F5F5F5"
 	},
@@ -62,9 +70,15 @@
 	// 	"color":"#888888",
 	// 	"borderStyle":"white",
 	// 	"list": [
+	// 		// {
+	// 		// 	"text":"学员列表",
+	// 		// 	"pagePath":"pages/stuList/stuList",
+	// 		// 	"iconPath":"static/icon/tabbar/stuList.png",
+	// 		// 	"selectedIconPath":"static/icon/tabbar/stuList-active.png"
+	// 		// },
 	// 		{
-	// 			"text":"学员列表",
-	// 			"pagePath":"pages/stuList/stuList",
+	// 			"text":"试听列表",
+	// 			"pagePath":"pages/appointmentList/appointmentList",
 	// 			"iconPath":"static/icon/tabbar/stuList.png",
 	// 			"selectedIconPath":"static/icon/tabbar/stuList-active.png"
 	// 		},
