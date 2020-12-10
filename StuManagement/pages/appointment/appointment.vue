@@ -21,9 +21,24 @@
 					<u-form-item label="姓名" prop="name" :required="true" :label-position="labelPosition" :border-bottom="borderBottom">
 						<u-input v-model="form.name" :type="inputType" :border="inputBorder" placeholder="请输入姓名" :border-color="borderColor" :height="inputHeight"/>
 					</u-form-item>
+					<u-form-item label="性别" prop="sex" :required="true" :label-position="labelPosition" :border-bottom="borderBottom">
+						<u-radio-group v-model="form.sex">
+							<u-radio v-for="(item, index) in sexList" :key="index" :name="item.name" :disabled="item.disabled">
+								{{ item.name }}
+							</u-radio>
+						</u-radio-group>
+					</u-form-item>
+					<u-form-item label="美术基础" prop="art" :required="true" :label-position="labelPosition" :border-bottom="borderBottom">
+						<u-radio-group v-model="form.art">
+							<u-radio v-for="(item, index) in artList" :key="index" :name="item.name" :disabled="item.disabled">
+								{{ item.name }}
+							</u-radio>
+						</u-radio-group>
+					</u-form-item>
 					<u-form-item label="手机号" prop="tel" :required="true" :label-position="labelPosition" :border-bottom="borderBottom">
 						<u-input v-model="form.tel" type="number" :border="inputBorder" placeholder="请输入手机号" :border-color="borderColor" :height="inputHeight"/>
 					</u-form-item>
+					
 					<u-form-item label="年龄" prop="age" :required="true" :label-position="labelPosition" :border-bottom="borderBottom">
 						<u-input v-model="form.age" :type="inputType" :border="inputBorder" :disabled="true" placeholder="请选择年龄范围" :border-color="borderColor" :height="inputHeight" @click="showAgeSelect=true"/>
 						<u-action-sheet :list="ageSelectList" v-model="showAgeSelect" @click="ageSelectCallback"></u-action-sheet>
@@ -74,9 +89,12 @@
 				//表单
 				form: {
 					name: '',
+					sex: '',
+					art:'',
 					tel: '',
 					age: '',
 					course:'',
+					
 					date:this.$u.timeFormat(new Date(), 'yyyy-mm-dd hh:MM:ss')
 				},
 				labelPosition:'top',
@@ -96,6 +114,26 @@
 					color: '#fff',
 					height:'44px',
 				},
+				sexList: [
+					{
+						name: '男',
+						disabled: false
+					},
+					{
+						name: '女',
+						disabled: false
+					}
+				],
+				artList: [
+				{
+					name: '没有',
+					disabled: false
+				},
+				{
+					name: '有',
+					disabled: false
+				}
+				],
 				showAgeSelect:false,
 				ageSelectList:[
 					{
@@ -113,6 +151,20 @@
 						{ 
 							required: true, 
 							message: '请输入姓名',
+							trigger: ['blur'],
+						}
+					],
+					sex: [
+						{ 
+							required: true, 
+							message: '请选择性别',
+							trigger: ['blur'],
+						}
+					],
+					art: [
+						{ 
+							required: true, 
+							message: '请选择是否具有美术基础',
 							trigger: ['blur'],
 						}
 					],
@@ -322,22 +374,29 @@
 			
 			.inner{
 				position:relative;
-				//height: 90%;
+				max-height: 90%;
+				background-image: url(https://vkceyugu.cdn.bspapp.com/VKCEYUGU-aliyun-wka3maxoaxil9e358e/f6565250-3a02-11eb-b680-7980c8a877b8.png);
+				overflow-y: auto;
 				width: 90%;
 				padding: 20rpx 40rpx;
 				box-sizing: border-box;
-				&:after{
-				    content: "";
-				    width:100%;
-				    height:100%;
-				    position: absolute;
-				    left:0;
-				    top:0;
-				    background: inherit;
-				    background-color: #fff;
-					opacity: 0.9;
-				    z-index: -1;
-					border-radius: 16rpx;
+				border-radius: 16rpx;
+				
+				// &:after{
+				//     content: "";
+				//     width:100%;
+				//     height:100%;
+				//     position: absolute;
+				//     left:0;
+				//     top:0;
+				//     background: inherit;
+				//     background-color: #fff;
+				// 	opacity: 0.9;
+				//     z-index: -1;
+				// 	border-radius: 16rpx;
+				// }
+				.submitBtn{
+					margin-bottom: 40rpx;
 				}
 			}
 			

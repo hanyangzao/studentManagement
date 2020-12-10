@@ -11,7 +11,10 @@
 				<view class="inner">
 					<view class="content">
 						<view class="name">
-							{{item.name}}<text class="age">{{item.age}}</text> 
+							{{item.name}} <u-icon class="sex" :name="item.sex=='男'?'man':'woman'" :color="item.sex=='男'?'#2979ff':'#ff2fd2' " size="28"></u-icon>   <text class="age">{{item.age}}</text> 
+						</view>
+						<view class="art">
+							{{item.art}}美术基础
 						</view>
 						
 						<view class="tel">
@@ -108,6 +111,9 @@
 					font-size: 28rpx;
 					font-weight: bold;
 					
+				}
+				.sex{
+					padding-left: 10rpx;
 				}
 				.age{
 					font-size: 24rpx;

@@ -211,7 +211,7 @@
 				background-color: #fafafa;
 			}
 			.content{
-				padding:20rpx 60rpx 50rpx;
+				padding:20rpx 80rpx 50rpx;
 			}
 			.btns{
 				margin-top: 20rpx;
